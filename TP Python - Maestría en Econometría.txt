@@ -1,0 +1,45 @@
+TP Python - Maestría en Econometría UTDT
+
+Trabajo práctico integrador del módulo Python de la Maestría en Econometría (Universidad Torcuato Di Tella, 2026).
+
+Descripción
+
+Este notebook implementa y compara distintos estimadores econométricos mediante simulaciones Monte Carlo, bootstrap y análisis empírico con datos de Gapminder. Se divide en tres partes:
+
+Parte 1 — Robustez ante contaminación de muestras
+- 1.1: Comparación de media y mediana como estimadores de tendencia central bajo distintos niveles de contaminación (0%, 5%, 10%, 20%). Se calcula sesgo y ECM empírico con M = 1000 simulaciones.
+- 1.2: Comparación de OLS (implementado a mano con la fórmula matricial) y LAD (minimizando la suma de errores absolutos con `scipy.optimize.minimize`) bajo contaminación. Se calcula sesgo y ECM de β1 con M = 500 simulaciones.
+
+Parte 2 — Paradoja de Simpson y variables omitidas
+Simulación de un modelo con variables discretas Z y W que genera:
+- Regresión marginal Y ~ X con coeficiente nulo.
+- Regresión condicional Y ~ X + Z con coeficiente negativo.
+- Regresión condicional Y ~ X + W con coeficiente positivo.
+
+Se estudia la distribución de β_X bajo las tres especificaciones con M = 1000 simulaciones, mostrando que el sesgo por variable omitida no desaparece con muestras grandes.
+
+Parte 3 — Análisis empírico con Gapminder (Ecuador)
+- **Pregunta A:** Convergencia de Ecuador hacia el promedio mundial en esperanza de vida (1952-2007).
+- **Pregunta B:** Identificación y cuantificación del período de mayor atipicidad respecto al continente americano, con explicación histórica (crisis de 1999).
+
+Cómo ejecutar el notebook
+
+1. Abrir el archivo `TP_Python.ipynb` en [Google Colab](https://colab.research.google.com/).
+2. Ir a `Entorno de ejecución` → `Ejecutar todas` (o presionar `Ctrl + F9`).
+3. El notebook corre de principio a fin sin modificaciones. Todas las dependencias (`numpy`, `pandas`, `matplotlib`, `seaborn`, `scipy`, `statsmodels`, `plotly`) están preinstaladas en Colab.
+
+Requisitos
+
+- Google Colab (recomendado) o Jupyter Notebook con Python 3.10+.
+- Semilla fija (`SEED = 42`) para reproducibilidad.
+
+Autor/es
+
+- GUIDO MACAS ACOSTA
+
+
+Materia
+
+Maestría en Econometría — Universidad Torcuato Di Tella
+Docente: Ian Evangelos Bounos
+Año: 2026
